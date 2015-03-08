@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a44d6da3-e737-4c10-91c0-96837090a04a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>FreelanceHunt</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Encoding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ChatBubbleExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\LayoutAwarePageBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BoolToChatBubbleDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\ByteToBoolConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\ByteToString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\ProfileToChatBubbleDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\UintToString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Incremental\BaseIncrementalSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Incremental\ProjectsIncrimental.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Incremental\IPagedResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Incremental\IPagedSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\BaseModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ChatMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dialogs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IProfile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Profile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ProjectDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Projects.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Rate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\ConfigService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\HashCreator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\IConfigService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\INavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\IWebService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\WebService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ChatViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MessagesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectInfoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\ru-RU\Resources.resw" />
+  </ItemGroup>
+</Project>

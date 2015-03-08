@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="FreelanceHunt.RatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FreelanceHunt"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converters="using:FreelanceHunt.Converters"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Converters:ByteToString x:Key="ByteToString"/>
+        <Converters:UintToString x:Key="UintToString"/>
+        <Converters:ByteToBoolConverter x:Key="BoolToByteConverter"/>
+    </Page.Resources>
+    <Page.DataContext>
+        <Binding Mode="OneWay" Path="RateViewModel" Source="{StaticResource Locator}"/>
+    </Page.DataContext>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="addRate" Icon="Accept" Command="{Binding CreateRateCommand}"/>
+            <AppBarButton x:Uid="cancelRate" Icon="Cancel" Command="{Binding CancelCommand}"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Uid="newRate" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}" Margin="10,0,10,10"/>
+        <StackPanel Grid.Row="1" Margin="10,0,10,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" x:Uid="coastTextBox" Text="{Binding CurrentRate.Amount, Converter={StaticResource UintToString}, Mode=TwoWay}"/>
+                <TextBlock Grid.Column="1" x:Uid="cashText" Style="{StaticResource BodyTextBlockStyle}" Margin="10,0" VerticalAlignment="Center"/>
+            </Grid>
+            <TextBox x:Uid="countDayTextBox" Text="{Binding CurrentRate.DaysToDeliver, Converter={StaticResource ByteToString}, Mode=TwoWay}"/>
+            <CheckBox x:Uid="seifCheck" IsChecked="{Binding CurrentRate.IsSafeProject, Converter={StaticResource BoolToByteConverter}, Mode=TwoWay}"/>
+
+            <!-- Тело содержимого -->
+            <TextBox x:Uid="bodyMessage" AcceptsReturn="True" Height="300" TextWrapping="Wrap" Text="{Binding CurrentRate.Comment, Mode=TwoWay}"/>
+        </StackPanel>
+    </Grid>
+</Page>
